@@ -6,6 +6,9 @@
 
 package pe.edu.upeu.prueba.modelo;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author alum.fial7
@@ -56,5 +59,13 @@ public class Distrito {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
+    public static Distrito loadDistrito(ResultSet rs) throws SQLException{
+        Distrito d = new Distrito();
+        d.setIdd(rs.getInt("iddidtrito"));
+        d.setIdr(rs.getInt("idregion"));
+        d.setDisc(rs.getString("distrito"));
+        d.setEstado(rs.getString("estado"));
+        
+        return d;
+    }
 }
